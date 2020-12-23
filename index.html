@@ -108,8 +108,8 @@
 					        <h6 class="card-subtitle mb-2 text-muted">Update</h6>
                   <h4 class="card-title"><a>23.12.2020</a></h4>
                   <div class="card-footer" style="width: auto; height: 50px; background-color: #343a40">
-                    <img src="https://raw.githubusercontent.com/digital-codebuz/cov-screen/main/load.svg" id="grapCBData" alt="" style="padding-right: 10px;">
-                    <small class="text-muted"><a id="datumUhrzeit" style="color: rgb(243,243,243);">Lade Zahlen von Cottbus.de</a></small>
+                    <!--<img src="https://raw.githubusercontent.com/digital-codebuz/cov-screen/main/load.svg" id="grapCBData" alt="" style="padding-right: 10px;">-->
+                    <small class="text-muted"><a id="datumUhrzeit" style="color: rgb(243,243,243);">...</a></small> <!-- Lade Zahlen von Cottbus.de / Not working CORS -->
                   </div>
                 </div>
             </div>
@@ -311,69 +311,71 @@ const animateCountUp = el => {
 	}, frameDuration );
 };
 
-// Run the animation on all elements with a class of ‘countup’
-window.onload = function() {
-	const countupEls = document.querySelectorAll( '#countup' );
-	countupEls.forEach( animateCountUp );
-};
+// DATEN VON COTTBUS HOLEN FUNKTIONIERT NICHT, DA COTTBUS.DE VERBIETET
 
-function killAltes(){
-  document.getElementById("datumUhrzeit").innerHTML = new Date().toLocaleString();
-  document.getElementById("siebenTageInzidenz").innerHTML = "";
-  document.getElementById("aktuellInfizierte").innerHTML = "";
-  document.getElementById("genesene").innerHTML = "";
-  document.getElementById("verstorbene").innerHTML = "";
-  document.getElementById("quarantaene").innerHTML = "";
-}
+        // Run the animation on all elements with a class of ‘countup’
+//        window.onload = function() {
+//          const countupEls = document.querySelectorAll( '#countup' );
+//          countupEls.forEach( animateCountUp );
+//        };
 
-// JQUERY GRAP CB-DATA
-$(document).ready(function(){
-  
-  $("#hiddenCBQuery").load("https://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html tbody");
-  var z = $("#hiddenCBQuery");
-  
-  $("#grapCBData").click(function(){
-  
-    killAltes();
+//        function killAltes(){
+//          document.getElementById("datumUhrzeit").innerHTML = new Date().toLocaleString();
+//          document.getElementById("siebenTageInzidenz").innerHTML = "";
+//          document.getElementById("aktuellInfizierte").innerHTML = "";
+//          document.getElementById("genesene").innerHTML = "";
+//          document.getElementById("verstorbene").innerHTML = "";
+//          document.getElementById("quarantaene").innerHTML = "";
+//        }
 
-  //document.getElementById("datumUhrzeit").innerHTML = "";
-  //document.getElementById("#siebenTageInzidenz").innerHTML = "";
-  //document.getElementById("#aktuellInfizierte").innerHTML = "";
-  //document.getElementById("#genesene").innerHTML = "";
-  //document.getElementById("#verstorbene").innerHTML = "";
-  //document.getElementById("#quarantaene").innerHTML = "";
+        // JQUERY GRAP CB-DATA
+//        $(document).ready(function(){
+          
+//          $("#hiddenCBQuery").load("http://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html tbody");
+//          var z = $("#hiddenCBQuery");
+          
+//          $("#grapCBData").click(function(){
+          
+//            killAltes();
 
-  // Datum und Uhrzeit
-  //$("#datumUhrzeit").append(z[0].children[0].children[0].children[1].children[0].innerHTML);
-  //$("#dateTime").z[0].children[0].children[0].children[1].children[0].innerHTML;
-  
-  // 7-Tage-Inzidenz
-  $("#siebenTageInzidenz").append(z[0].children[0].children[6].children[1].innerHTML);
-  //$("#inzidenz").z[0].children[0].children[6].children[1].innerHTML;
-  
-  // Aktuell Infizierte Personen
-  $("#aktuellInfizierte").append(z[0].children[0].children[5].children[1].innerHTML);
-  //$("#infiziert").z[0].children[0].children[5].children[1].innerHTML;
-  
-  // Veränderung zum Vortag
-  //document.getElementById("#aktuellInfizierte").innerHTML = "";
-  //$("#aktuellInfizierte").append(z[0].children[0].children[2].children[1].innerHTML);
-  //$("#vortag").z[0].children[0].children[2].children[1].innerHTML;
-  
-  // Genesene
-  $("#genesene").append(z[0].children[0].children[3].children[1].innerHTML);
-  //$("#genesen").z[0].children[0].children[3].children[1].innerHTML;
-  
-  // Verstorbene
-  $("#verstorbene").append(z[0].children[0].children[4].children[1].innerHTML);
-  //$("#verstorben").z[0].children[0].children[4].children[1].innerHTML;
-  
-  // Quarantäne
-  $("#quarantaene").append(z[0].children[0].children[7].children[1].innerHTML);
-  //$("#quarantaene").z[0].children[0].children[7].children[1].innerHTML;
+          //document.getElementById("datumUhrzeit").innerHTML = "";
+          //document.getElementById("#siebenTageInzidenz").innerHTML = "";
+          //document.getElementById("#aktuellInfizierte").innerHTML = "";
+          //document.getElementById("#genesene").innerHTML = "";
+          //document.getElementById("#verstorbene").innerHTML = "";
+          //document.getElementById("#quarantaene").innerHTML = "";
 
-});
-});
+          // Datum und Uhrzeit
+          //$("#datumUhrzeit").append(z[0].children[0].children[0].children[1].children[0].innerHTML);
+          //$("#dateTime").z[0].children[0].children[0].children[1].children[0].innerHTML;
+          
+          // 7-Tage-Inzidenz
+//          $("#siebenTageInzidenz").append(z[0].children[0].children[6].children[1].innerHTML);
+          //$("#inzidenz").z[0].children[0].children[6].children[1].innerHTML;
+          
+          // Aktuell Infizierte Personen
+//          $("#aktuellInfizierte").append(z[0].children[0].children[5].children[1].innerHTML);
+          //$("#infiziert").z[0].children[0].children[5].children[1].innerHTML;
+          
+          // Veränderung zum Vortag
+          //document.getElementById("#aktuellInfizierte").innerHTML = "";
+          //$("#aktuellInfizierte").append(z[0].children[0].children[2].children[1].innerHTML);
+          //$("#vortag").z[0].children[0].children[2].children[1].innerHTML;
+          
+          // Genesene
+//          $("#genesene").append(z[0].children[0].children[3].children[1].innerHTML);
+          //$("#genesen").z[0].children[0].children[3].children[1].innerHTML;
+          
+          // Verstorbene
+//          $("#verstorbene").append(z[0].children[0].children[4].children[1].innerHTML);
+          //$("#verstorben").z[0].children[0].children[4].children[1].innerHTML;
+          
+          // Quarantäne
+//          $("#quarantaene").append(z[0].children[0].children[7].children[1].innerHTML);
+          //$("#quarantaene").z[0].children[0].children[7].children[1].innerHTML;
+
+//        });
+//        });
 </script>
 </body>
 </html>
