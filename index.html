@@ -14,7 +14,10 @@
 
     <!-- CHART.JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>  
+    
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
     <!-- STYLES FOR CENTERING-->
     <style>
@@ -34,17 +37,24 @@
         padding-top: 60px;
         padding-bottom: 70px;
         }
+        #hiddenCBQuery {
+          visibility: hidden;
+          width: 0;
+          height: 0;
+        }
       </style>
 
     <title>Covid Screen CB</title>	
   </head>
   <body>
+    <!-- HIDDEN DIV FOR CB-DATA QUERY -->
+    <div id="hiddenCBQuery"></div>
     <!-- HEADER -->
     <nav class="navbar fixed-top navbar-dark bg-dark justify-content-center" style="height: 50px;">
     <img src="https://raw.githubusercontent.com/digital-codebuz/cov-screen/main/help_grey233.svg" alt="help" style="padding-right: 10px"><a style="color:rgb(233,233,233)" href="https://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html">Covid Screen Cottbus/Ch&oacute;&sacute;ebuz</a>
     </nav>
     <!-- FOOTER BUTTON FOR MODAL -->
-    <nav class="navbar fixed-bottom navbar-dark bg-dark justify-content-center" style="height: 60px;">
+    <nav class="navbar fixed-bottom navbar-dark bg-dark justify-content-center" style="height: 60px;"><img src="https://raw.githubusercontent.com/digital-codebuz/cov-screen/main/info.svg" alt="help">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="color:rgb(233,233,233); background-color:rgba(50,50,50,0); border: 0px;">
           Quelle - Hinweise - Impressum 
           </button>    
@@ -71,13 +81,14 @@
                 <p><a>4.)&nbsp;</a><a href="https://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html">Corona-Lage auf cottbus.de</a></p><br>
                 
                 <h6>Hinweise:</h6><br>
-                <p>Ein Plus- und Minussymbol gibt die Veränderung zum Vortag an.</p>
-                <p>Die Fallzahlen aus Cottbus/Ch&oacute;&sacute;ebuz werden momentan täglich manuell übernommen von der Internetseite (siehe Punkt 4 bei Datendownload).</p>
-                <p>Die Balkendiagramme zeigen monatlich die Anzahl der am Stichtag (jeweils der 6.) aktuell infizierten Personen. Am 6.5.2020 beginnt der Datensatz des RKI.</p><br>
+                <p>Ein Plus- und/oder Minussymbol gibt die Veränderung zum Vortag an.</p>
+                <p>Die Fallzahlen aus Cottbus/Ch&oacute;&sacute;ebuz werden momentan täglich vom Administrator manuell (siehe Uhrzeit weiter unten) von der Internetseite der Stadt Cottbus/Ch&oacute;&sacute;ebuz übernommen (siehe Punkt 4 bei Datendownload).</p>
+                <p>Nutzer können die aktuellen Fallzahlen, die auf der Internetseite der Stadt Cottbus/Ch&oacute;&sacute;ebuz veröffentlicht werden, direkt abrufen bzw. hinzuladen.</p>
+                <p>Die Balkendiagramme zeigen monatlich die Anzahl der am Stichtag (jeweils der 6.) aktuell infizierten Personen. Der Datensatz vom RKI (siehe Quellenvermerk) beginnt ab 6. Mai 2020, daher beginnt die Zeitreihe ab diesem Datum.</p><br>
                 
                 <h6>Impressum:</h6><br>
-                <p>St. Stöhr - stefan.stoehr@cottbus.de</p>
-                <p>22. Dezember 2020, 14:55 Uhr</p>
+                <p>St. Stöhr (STVW CB/FB61)</p>
+                <p>23. Dezember 2020, 22:33 Uhr</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -92,60 +103,84 @@
     <div class="row justify-content-center">
     <!-- UPDATE -->
 		<div class="col-auto mb-3">
-            <div class="card" style="width: 18rem; height: 6rem; background-color: rgb(243,243,243); border: 1px solid rgb(100,100,100);">
-                <div class="card-body">
+            <div class="card" style="width: 18rem; background-color: rgb(243,243,243); border: 1px solid rgb(100,100,100);">
+                <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
 					        <h6 class="card-subtitle mb-2 text-muted">Update</h6>
-					        <h5 class="card-title"><a>22.12.2020</a></h5>
+                  <h4 class="card-title"><a>23.12.2020</a></h4>
+                  <div class="card-footer" style="width: auto; height: 50px; background-color: #343a40">
+                    <img src="https://raw.githubusercontent.com/digital-codebuz/cov-screen/main/load.svg" id="grapCBData" alt="" style="padding-right: 10px;">
+                    <small class="text-muted"><a id="datumUhrzeit" style="color: rgb(243,243,243);">Lade Zahlen von Cottbus.de</a></small>
+                  </div>
                 </div>
             </div>
         </div>
     <!-- INZIDENZ -->
 		<div class="col-auto mb-3">
-            <div class="card" style="width: 18rem; height: 6rem;background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
-                <div class="card-body">
+            <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
+                <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
                     <h6 class="card-subtitle mb-2 text-muted">7-Tage-Inzidenz</h6>
-                    <h5 class="card-title"><a id="countup">436</a><a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em">47</a></h5>
+                    <h4 class="card-title"><a id="countup">410</a><a style="color:rgb(25,150,0);font-size: 0.7em; padding-left: 10px;">-</a><a id="countup" style="color:rgb(25,150,0);font-size: 0.7em">26</a></h4>
+                    <!-- Stand 22.12.2020 22h: 436/+47 -->
                     <!-- Stand 21.12.2020 10h: 408/+19 -->
+                    <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
+                      <small class="text-muted"><a id="siebenTageInzidenz" style="color: rgb(243,243,243);">...</a></small>
+                    </div>
                 </div>
             </div>
         </div>
     <!-- INFEKTIONEN -->    
 		<div class="col-auto mb-3">
-            <div class="card" style="width: 18rem; height: 6rem;background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
-                <div class="card-body">
+            <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
+                <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
                     <h6 class="card-subtitle mb-2 text-muted">Aktuell infiziert</h6>
-                    <h5 class="card-title"><a id="countup">1130</a><a style="color:rgb(25, 150, 0);font-size: 0.7em; padding-left: 10px;">-</a><a id="countup" style="color:rgb(25,150,0);font-size: 0.7em;">91</a></h5>
+                    <h4 class="card-title"><a id="countup">1197</a><a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em;">67</a></h4>
+                    <!-- Stand 22.12.2020 22h: 1130/-91 -->
                     <!-- Stand 21.12.2020 10h: 1099/-122 -->
+                    <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
+                      <small class="text-muted"><a id="aktuellInfizierte" style="color: rgb(243,243,243);">...</a></small>
+                    </div>
                 </div>
             </div>
         </div>
     <!-- GENESENE -->    
     <div class="col-auto mb-3">
-            <div class="card" style="width: 18rem; height: 6rem;background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
-                <div class="card-body">
+            <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
+                <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
                     <h6 class="card-subtitle mb-2 text-muted">Genesene</h6>
-                    <h5 class="card-title"><a id="countup">1017</a><a style="color:rgb(25, 150, 0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(25,150,0);font-size: 0.7em;">166</a></h5>
+                    <h4 class="card-title"><a id="countup">1017</a><!--<a style="color:rgb(25, 150, 0);font-size: 0.7em; padding-left: 10px;"></a><a id="countup" style="color:rgb(25,150,0);font-size: 0.7em;"></a>--></h4>
+                    <!-- Stand 22.12.2020 22h: 1017/+166 -->
                     <!-- Stand 21.12.2020 10h: 1000/+149 -->
+                    <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
+                      <small class="text-muted"><a id="genesene" style="color: rgb(243,243,243);">...</a></small>
+                    </div>
                 </div>
             </div>
         </div>
     <!-- VERSTORBENE -->    
     <div class="col-auto mb-3">
-            <div class="card" style="width: 18rem; height: 6rem;background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
-                <div class="card-body">
+            <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
+                <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
                     <h6 class="card-subtitle mb-2 text-muted">Verstorbene</h6>
-                    <h5 class="card-title"><a id="countup">70</a><a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em">5</a></h5>
+                    <h4 class="card-title"><a id="countup">70</a><!--<a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;"></a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em"></a>--></h4>
+                    <!-- Stand 22.12.2020 10h: 70/+5 -->
                     <!-- Stand 21.12.2020 10h: 65/0 -->
+                    <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
+                      <small class="text-muted"><a id="verstorbene" style="color: rgb(243,243,243);">...</a></small>
+                    </div>
                 </div>
             </div>
         </div>
     <!-- QUARANTÄNE -->
     <div class="col-auto mb-3">
-            <div class="card" style="width: 18rem; height: 6rem;background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
-                <div class="card-body">
+            <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
+                <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
                     <h6 class="card-subtitle mb-2 text-muted">Quarant&auml;ne</h6>
-                    <h5 class="card-title"><a id="countup">3297</a><a style="color:rgb(25, 150, 0);font-size: 0.7em; padding-left: 10px;">-</a><a id="countup" style="color:rgb(25,150,0);font-size: 0.7em;">483</a></h5>
+                    <h4 class="card-title"><a id="countup">2876</a><a style="color:rgb(25, 150, 0);font-size: 0.7em; padding-left: 10px;">-</a><a id="countup" style="color:rgb(25,150,0);font-size: 0.7em;">421</a></h4>
+                    <!-- Stand 22.12.2020 22h: 3297/-483 -->
                     <!-- Stand 21.12.2020 10h: 3788/-2 -->
+                    <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
+                      <small class="text-muted"><a id="quarantaene" style="color: rgb(243,243,243);">...</a></small>
+                    </div>
                 </div>
             </div>
         </div>
@@ -282,6 +317,63 @@ window.onload = function() {
 	countupEls.forEach( animateCountUp );
 };
 
+function killAltes(){
+  document.getElementById("datumUhrzeit").innerHTML = new Date().toLocaleString();
+  document.getElementById("siebenTageInzidenz").innerHTML = "";
+  document.getElementById("aktuellInfizierte").innerHTML = "";
+  document.getElementById("genesene").innerHTML = "";
+  document.getElementById("verstorbene").innerHTML = "";
+  document.getElementById("quarantaene").innerHTML = "";
+}
+
+// JQUERY GRAP CB-DATA
+$(document).ready(function(){
+  
+  $("#hiddenCBQuery").load("http://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html tbody");
+  var z = $("#hiddenCBQuery");
+  
+  $("#grapCBData").click(function(){
+  
+    killAltes();
+
+  //document.getElementById("datumUhrzeit").innerHTML = "";
+  //document.getElementById("#siebenTageInzidenz").innerHTML = "";
+  //document.getElementById("#aktuellInfizierte").innerHTML = "";
+  //document.getElementById("#genesene").innerHTML = "";
+  //document.getElementById("#verstorbene").innerHTML = "";
+  //document.getElementById("#quarantaene").innerHTML = "";
+
+  // Datum und Uhrzeit
+  //$("#datumUhrzeit").append(z[0].children[0].children[0].children[1].children[0].innerHTML);
+  //$("#dateTime").z[0].children[0].children[0].children[1].children[0].innerHTML;
+  
+  // 7-Tage-Inzidenz
+  $("#siebenTageInzidenz").append(z[0].children[0].children[6].children[1].innerHTML);
+  //$("#inzidenz").z[0].children[0].children[6].children[1].innerHTML;
+  
+  // Aktuell Infizierte Personen
+  $("#aktuellInfizierte").append(z[0].children[0].children[5].children[1].innerHTML);
+  //$("#infiziert").z[0].children[0].children[5].children[1].innerHTML;
+  
+  // Veränderung zum Vortag
+  //document.getElementById("#aktuellInfizierte").innerHTML = "";
+  //$("#aktuellInfizierte").append(z[0].children[0].children[2].children[1].innerHTML);
+  //$("#vortag").z[0].children[0].children[2].children[1].innerHTML;
+  
+  // Genesene
+  $("#genesene").append(z[0].children[0].children[3].children[1].innerHTML);
+  //$("#genesen").z[0].children[0].children[3].children[1].innerHTML;
+  
+  // Verstorbene
+  $("#verstorbene").append(z[0].children[0].children[4].children[1].innerHTML);
+  //$("#verstorben").z[0].children[0].children[4].children[1].innerHTML;
+  
+  // Quarantäne
+  $("#quarantaene").append(z[0].children[0].children[7].children[1].innerHTML);
+  //$("#quarantaene").z[0].children[0].children[7].children[1].innerHTML;
+
+});
+});
 </script>
 </body>
 </html>
