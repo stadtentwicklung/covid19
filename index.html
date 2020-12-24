@@ -83,7 +83,7 @@
                 <h6>Hinweise:</h6><br>
                 <p>Ein Plus- und/oder Minussymbol gibt die Veränderung zum Vortag an.</p>
                 <p>Die Fallzahlen aus Cottbus/Ch&oacute;&sacute;ebuz werden momentan täglich vom Administrator manuell (siehe Uhrzeit weiter unten) von der Internetseite der Stadt Cottbus/Ch&oacute;&sacute;ebuz übernommen (siehe Punkt 4 bei Datendownload).</p>
-                <p>Cottbus.de erlaubt folgende Funktion nicht: Nutzer können die aktuellen Fallzahlen, die auf der Internetseite der Stadt Cottbus/Ch&oacute;&sacute;ebuz veröffentlicht werden, direkt abrufen bzw. hinzuladen.</p>
+                <p>Cottbus.de verbietet folgende Funktion: Nutzer können die aktuellen Fallzahlen, die auf der Internetseite der Stadt Cottbus/Ch&oacute;&sacute;ebuz veröffentlicht werden, direkt abrufen bzw. hinzuladen.</p>
                 <p>Die Balkendiagramme zeigen monatlich die Anzahl der am Stichtag (jeweils der 6.) aktuell infizierten Personen. Der Datensatz vom RKI (siehe Quellenvermerk) beginnt ab 6. Mai 2020, daher beginnt die Zeitreihe ab diesem Datum.</p><br>
                 
                 <h6>Impressum:</h6><br>
@@ -311,13 +311,13 @@ const animateCountUp = el => {
 	}, frameDuration );
 };
 
-// DATEN VON COTTBUS HOLEN FUNKTIONIERT NICHT, DA COTTBUS.DE VERBIETET
+
 
         // Run the animation on all elements with a class of ‘countup’
-//        window.onload = function() {
-//          const countupEls = document.querySelectorAll( '#countup' );
-//          countupEls.forEach( animateCountUp );
-//        };
+        window.onload = function() {
+          const countupEls = document.querySelectorAll( '#countup' );
+          countupEls.forEach( animateCountUp );
+        };
 
 //        function killAltes(){
 //          document.getElementById("datumUhrzeit").innerHTML = new Date().toLocaleString();
