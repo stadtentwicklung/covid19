@@ -47,8 +47,8 @@
     <title>Covid Screen CB</title>	
   </head>
   <body>
-    <!-- HIDDEN DIV FOR CB-DATA QUERY -->
-    <div id="hiddenCBQuery"></div>
+    <!-- HIDDEN DIV FOR CB-DATA QUERY
+    <div id="hiddenCBQuery"></div>-->
     <!-- HEADER -->
     <nav class="navbar fixed-top navbar-dark bg-dark justify-content-center" style="height: 50px;">
     <img src="https://raw.githubusercontent.com/digital-codebuz/cov-screen/main/help_grey233.svg" alt="help" style="padding-right: 10px"><a style="color:rgb(233,233,233)" href="https://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html">Covid Screen Cottbus/Ch&oacute;&sacute;ebuz</a>
@@ -88,7 +88,7 @@
                 
                 <h6>Impressum:</h6><br>
                 <p>St. Stöhr (STVW CB/FB61)</p>
-                <p>28. Dezember 2020, 21:00 Uhr</p>
+                <p>30. Dezember 2020, 02:16 Uhr</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -106,7 +106,7 @@
             <div class="card" style="width: 18rem; background-color: rgb(243,243,243); border: 1px solid rgb(100,100,100);">
                 <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
 					        <h6 class="card-subtitle mb-2 text-muted">Update</h6>
-                  <h4 class="card-title"><a>28.12.2020</a></h4>
+                  <h4 class="card-title"><a>29.12.2020</a></h4>
                   <div class="card-footer" style="width: auto; height: 50px; background-color: #343a40">
                     <!--<img src="https://raw.githubusercontent.com/digital-codebuz/cov-screen/main/load.svg" id="grapCBData" alt="" style="padding-right: 10px;">-->
                     <small class="text-muted"><a id="datumUhrzeit" style="color: rgb(243,243,243);">...</a></small> <!-- "Lade Zahlen von Cottbus.de" / Not working CORS -->
@@ -121,14 +121,15 @@
             <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
                 <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
                     <h6 class="card-subtitle mb-2 text-muted">7-Tage-Inzidenz</h6>
-                    <h4 class="card-title"><a id="countup">361</a><a style="color:rgb(25,150,0);font-size: 0.7em; padding-left: 10px;">-</a><a id="countup" style="color:rgb(25,150,0);font-size: 0.7em">32</a></h4>
-                    <!-- Stand 27.12.2020 22h: 393/ -->
-                    <!-- Stand 26.12.2020 22h: 393/-10 -->
-                    <!-- Stand 25.12.2020 22h: 403/-14 -->
-                    <!-- Stand 24.12.2020 22h: 417/+7 -->
-                    <!-- Stand 23.12.2020 22h: 410/-26 -->
-                    <!-- Stand 22.12.2020 22h: 436/+47 -->
-                    <!-- Stand 21.12.2020 10h: 408/+19 -->
+                    <h4 class="card-title"><a id="countup">350</a><a style="color:rgb(25,150,0);font-size: 0.7em; padding-left: 10px;">-</a><a id="countup" style="color:rgb(25,150,0);font-size: 0.7em">11</a></h4>
+                    <!-- Stand 28.12.2020 - 361/-32 -->
+                    <!-- Stand 27.12.2020 - 393/ -->
+                    <!-- Stand 26.12.2020 - 393/-10 -->
+                    <!-- Stand 25.12.2020 - 403/-14 -->
+                    <!-- Stand 24.12.2020 - 417/+7 -->
+                    <!-- Stand 23.12.2020 - 410/-26 -->
+                    <!-- Stand 22.12.2020 - 436/+47 -->
+                    <!-- Stand 21.12.2020 - 408/+19 -->
                     <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
                       <small class="text-muted"><a id="siebenTageInzidenz" style="color: rgb(243,243,243);">...</a></small>
                     </div>
@@ -140,14 +141,15 @@
             <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
                 <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
                     <h6 class="card-subtitle mb-2 text-muted">Aktuell infiziert</h6>
-                    <h4 class="card-title"><a id="countup">1300</a><a style="color:rgb(25,150,0);font-size: 0.7em; padding-left: 10px;">-</a><a id="countup" style="color:rgb(25,150,0);font-size: 0.7em;">2</a></h4>
-                    <!-- Stand 27.12.2020 22h: 1303/-92 -->
-                    <!-- Stand 26.12.2020 22h: 1395/+77 -->
-                    <!-- Stand 25.12.2020 22h: 1322/+53 -->
-                    <!-- Stand 24.12.2020 22h: 1269/+72 -->
-                    <!-- Stand 23.12.2020 22h: 1197/+67 -->
-                    <!-- Stand 22.12.2020 22h: 1130/-91 -->
-                    <!-- Stand 21.12.2020 10h: 1099/-122 -->
+                    <h4 class="card-title"><a id="countup">1339</a><a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em;">9</a></h4>
+                    <!-- Stand 28.12.2020 - 1300/-2 -->
+                    <!-- Stand 27.12.2020 - 1303/-92 -->
+                    <!-- Stand 26.12.2020 - 1395/+77 -->
+                    <!-- Stand 25.12.2020 - 1322/+53 -->
+                    <!-- Stand 24.12.2020 - 1269/+72 -->
+                    <!-- Stand 23.12.2020 - 1197/+67 -->
+                    <!-- Stand 22.12.2020 - 1130/-91 -->
+                    <!-- Stand 21.12.2020 - 1099/-122 -->
                     <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
                       <small class="text-muted"><a id="aktuellInfizierte" style="color: rgb(243,243,243);">...</a></small>
                     </div>
@@ -159,14 +161,15 @@
             <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
                 <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
                     <h6 class="card-subtitle mb-2 text-muted">Genesene</h6>
-                    <h4 class="card-title"><a id="countup">1149</a><a style="color:rgb(25, 150, 0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(25,150,0);font-size: 0.7em;">20</a></h4>
-                    <!-- Stand 27.12.2020 22h: 1129/+112 -->
-                    <!-- Stand 26.12.2020 22h: 1017 -->
-                    <!-- Stand 25.12.2020 22h: 1017/00 -->
-                    <!-- Stand 24.12.2020 22h: 1017 -->
-                    <!-- Stand 23.12.2020 22h: 1017 -->
-                    <!-- Stand 22.12.2020 22h: 1017/+166 -->
-                    <!-- Stand 21.12.2020 10h: 1000/+149 -->
+                    <h4 class="card-title"><a id="countup">1149</a><!--<a style="color:rgb(25, 150, 0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(25,150,0);font-size: 0.7em;">20</a>--></h4>
+                    <!-- Stand 28.12.2020 - 1149/+20 -->
+                    <!-- Stand 27.12.2020 - 1129/+112 -->
+                    <!-- Stand 26.12.2020 - 1017 -->
+                    <!-- Stand 25.12.2020 - 1017/00 -->
+                    <!-- Stand 24.12.2020 - 1017 -->
+                    <!-- Stand 23.12.2020 - 1017 -->
+                    <!-- Stand 22.12.2020 - 1017/+166 -->
+                    <!-- Stand 21.12.2020 - 1000/+149 -->
                     <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
                       <small class="text-muted"><a id="genesene" style="color: rgb(243,243,243);">...</a></small>
                     </div>
@@ -178,14 +181,15 @@
             <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
                 <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
                     <h6 class="card-subtitle mb-2 text-muted">Verstorbene</h6>
-                    <h4 class="card-title"><a id="countup">76</a><a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em">1</a></h4>
-                    <!-- Stand 27.12.2020 22h: 75/+2 -->
-                    <!-- Stand 26.12.2020 22h: 73/ -->
-                    <!-- Stand 25.12.2020 22h: 73/00 -->
-                    <!-- Stand 24.12.2020 22h: 70 -->
-                    <!-- Stand 23.12.2020 22h: 70 -->
-                    <!-- Stand 22.12.2020 10h: 70/+5 -->
-                    <!-- Stand 21.12.2020 10h: 65/0 -->
+                    <h4 class="card-title"><a id="countup">79</a><a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em">3</a></h4>
+                    <!-- Stand 28.12.2020 - 76/+1 -->
+                    <!-- Stand 27.12.2020 - 75/+2 -->
+                    <!-- Stand 26.12.2020 - 73/ -->
+                    <!-- Stand 25.12.2020 - 73/00 -->
+                    <!-- Stand 24.12.2020 - 70 -->
+                    <!-- Stand 23.12.2020 - 70 -->
+                    <!-- Stand 22.12.2020 - 70/+5 -->
+                    <!-- Stand 21.12.2020 - 65/0 -->
                     <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
                       <small class="text-muted"><a id="verstorbene" style="color: rgb(243,243,243);">...</a></small>
                     </div>
@@ -197,14 +201,15 @@
             <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
                 <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
                     <h6 class="card-subtitle mb-2 text-muted">Quarant&auml;ne</h6>
-                    <h4 class="card-title"><a id="countup">3172</a><a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em;">83</a></h4>
-                    <!-- Stand 27.12.2020 22h: 3089/-5 -->
-                    <!-- Stand 26.12.2020 22h: 3094/+65 -->
-                    <!-- Stand 25.12.2020 22h: 3029/147 -->
-                    <!-- Stand 24.12.2020 22h: 2883/+7 -->
-                    <!-- Stand 23.12.2020 22h: 2876/+421 -->
-                    <!-- Stand 22.12.2020 22h: 3297/-483 -->
-                    <!-- Stand 21.12.2020 10h: 3788/-2 -->
+                    <h4 class="card-title"><a id="countup">3232</a><a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em;">60</a></h4>
+                    <!-- Stand 28.12.2020 - 3172/+83 -->
+                    <!-- Stand 27.12.2020 - 3089/-5 -->
+                    <!-- Stand 26.12.2020 - 3094/+65 -->
+                    <!-- Stand 25.12.2020 - 3029/147 -->
+                    <!-- Stand 24.12.2020 - 2883/+7 -->
+                    <!-- Stand 23.12.2020 - 2876/+421 -->
+                    <!-- Stand 22.12.2020 - 3297/-483 -->
+                    <!-- Stand 21.12.2020 - 3788/-2 -->
                     <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
                       <small class="text-muted"><a id="quarantaene" style="color: rgb(243,243,243);">...</a></small>
                     </div>
