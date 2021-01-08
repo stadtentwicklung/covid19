@@ -311,15 +311,21 @@ var jsonVar;
 
 // CB ZAHLEN VON COTTBUS.DE HOLEN 
 
-    $.ajaxSetup({
-    scriptCharset: "utf-8", //or "ISO-8859-1"
-    contentType: "application/json; charset=utf-8"
-    });
+cottbusData();
 
-    $.getJSON('http://whateverorigin.org/get?url=' + 
-        encodeURIComponent('http://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html') + '&callback=?',
-        function (data) {
-            console.log(data);
+//    $.ajaxSetup({
+//    scriptCharset: "utf-8", //or "ISO-8859-1"
+//    contentType: "application/json; charset=utf-8"
+//    });
+//https://whateverorigin.herokuapp.com/get?url=...
+    //$.getJSON('http://whateverorigin.org/get?url=' + 
+    //    encodeURIComponent('http://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html') + '&callback=?',
+    //    function (data) {
+    //        console.log(data);
+
+function cottbusData() {
+
+    $.getJSON('https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html'), function (data) {            
             
             $("#hiddenCBQuery").html(data.contents);
             
@@ -335,7 +341,7 @@ var jsonVar;
             $("#cbQuaran").append(z[0].children[0].children[7].children[1].innerHTML);
 
     });
-
+};
 // RKI 7-TAGE-INZIDENZ
 
 sieben();
@@ -1002,15 +1008,17 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
                 //console.log("Gesamtinfektionen Männer Alter 80+: " + gruppe6AllMann);
                 
                 //console.log(jsonVar)
-               
+                diagramme();
             });
         };
 
 // DIAGRAMME
 
-window.onload = function () {
+
 
 // CHART 1 - VERSTORBEN NACH AG
+
+function diagramme() {
 
 new Chart(document.getElementById("chart1"), {
     type: 'bar',
