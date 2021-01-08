@@ -1,4 +1,4 @@
-# cov-screen - Covid Screen Cottbus/Chóśebuz
+# Covid Screen Cottbus/Chóśebuz
 Webapp für einen aktuellen Lagebericht zu Covid-19 in Cottbus/Chóśebuz mit Zahlen von Cottbus.de und dem RKI zum Vergleich.
 
 Link: https://digital-codebuz.github.io/cov-screen/
