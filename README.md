@@ -7,5 +7,5 @@ Info:
 - HTML, CSS, JAVASCRIPT, JQUERY, JSON
 - Verwendung von Bootstrap.js (Layout) and Chart.js (Diagramme)
 - Bei Seitenaufruf Abfrage aktueller Datenstände von Cottbus.de
-- Anbindung an REST API von RKI/Esri ArchGIS zum Vergleich der Zahlen, ebenfalls bei Seitenaufruf abgefragt
+- Anbindung an REST API von RKI/Esri ArcGIS zum Vergleich der Zahlen, ebenfalls bei Seitenaufruf abgefragt
 - Auswertung der JSON-Datensätze und Darstellung in Balkendiagrammen
