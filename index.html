@@ -1,29 +1,29 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+    <!-- REQUIRED -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap -->
+    <!-- BOOTSTRAP FOR LAYOUT -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <!-- CHART.JS -->
+    <!-- CHART.JS FOR CHARTS-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>  
     
-    <!-- JQUERY -->
+    <!-- JQUERY FOR COVID-DATA-REQUESTS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
-    <!-- STYLES FOR CENTERING-->
     <style>
         body {
           background-color:rgb(150,150,150);
         }
+        /* STYLES FOR CENTERING */
         .outer-container {
         position : absolute;
         display: table;
@@ -37,6 +37,7 @@
         padding-top: 60px;
         padding-bottom: 70px;
         }
+        /* STYLES FOR HANDLING LOADED DATA */
         #hiddenCBQuery {
           visibility: hidden;
           width: 0px;
@@ -54,7 +55,7 @@
     <title>Covid Screen CB</title>	
   </head>
   <body>
-    <!-- HIDDEN DIV FOR CB-DATA QUERY -->
+    <!-- HIDDEN DIV FOR CB-DATA-QUERY -->
     <div id="hiddenCBQuery"></div>
     <div id="filter"></div>
     <!-- HEADER -->
@@ -63,9 +64,9 @@
     </nav>
     <!-- FOOTER BUTTON FOR MODAL -->
     <nav class="navbar fixed-bottom navbar-dark bg-dark justify-content-center" style="height: 60px; border-top: 1px solid #000000;">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="color:rgb(233,233,233); background-color:rgba(50,50,50,0); border: 0px;">Quelle - Hinweise - Impressum</button>    
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="color:rgb(233,233,233); background-color:rgba(50,50,50,0); border: 0px;">Quellen - Hinweise - Impressum</button>    
     </nav>
-    <!-- MODAL -->
+    <!-- MODAL = QUELLEN ETC. -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -86,14 +87,15 @@
                 
                 <h6>Hinweise:</h6><br>
                 <p>Ein Plus- und/oder Minussymbol gibt die Veränderung zum Vortag an.</p>
-                <p>Die Fallzahlen auf der Internetseite der Stadt Cottbus/Ch&oacute;&sacute;ebuz zur Corona-Lage haben Priorität und werden im weißen Bereich der Rasterfelder dargestellt. Beim Seitenaufruf holt sich diese Anwendung die Zahlen direkt von der Internetseite der Stadt Cottbus/Ch&oacute;&sacute;ebuz.</p>
-                <p>Die Fallzahlen des RKI für die Stadt Cottbus/Ch&oacute;&sacute;ebuz werden beim Seitenaufruf von der REST API des RKI (bereitgestellt von ESRI ARCGIS) abgefragt. Sie bilden den aktuellen Datenstand des RKI für die Stadt Cottbus/Ch&oacute;&sacute;ebuz ab. Die Zahlen auf Cottbus.de unterscheiden sich von den Zahlen des RKI. Warum die Daten unerschiedlich sind, ist leider unbekannt. Die Zahlen des RKI werden allerdings auf nationaler Ebene genutzt, weshalb sie ebenfalls dargestellt werden.</p>
-                <p>Die 7-Tage-Inzidenz vom RKI wird über eine zweite REST API abgefragt, welche den Wert für die 7-Tage-Inzidenz direkt angibt.</p>
-                <p>Die Balkendiagramme sind Auswertungen über die REST API und berücksichtigen Geschlecht und Altersgruppen.</p><br>
+                <p>Die Fallzahlen auf der <a href="https://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html">Internetseite der Stadt Cottbus/Ch&oacute;&sacute;ebuz zur Corona-Lage</a> haben Priorität und werden im oberen Bereich der Rasterfelder dargestellt. Beim Seitenaufruf fragt diese Anwendung die Zahlen direkt von der Internetseite der Stadt Cottbus/Ch&oacute;&sacute;ebuz ab.</p>
+                <p>Die vom RKI zur Verfügung gestellten Fallzahlen für die Stadt Cottbus/Ch&oacute;&sacute;ebuz werden beim Seitenaufruf von einer REST API des RKI abgefragt. Die Zahlen auf Cottbus.de unterscheiden sich von den Zahlen des RKI (vgl. <a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4">Robert Koch-Institut: COVID-19-Dashboard</a>. Warum die Daten unerschiedlich sind, ist leider unbekannt.</p>
+                <p>Die Balkendiagramme sind Auswertungen über die REST API und berücksichtigen Geschlecht und Altersgruppen.</p>
+                <p>Der Quellcode dieser Anwendung steht auf <a href="https://github.com/digital-codebuz/cov-screen">Github</a> öffentlich unter der Creative Commons Lizen CC-BY zur Verfügung. Bei Hinweisen und Fragen melden Sie sich bitte.</p><br>
                 
                 <h6>Impressum:</h6><br>
-                <p>St. Stöhr (STVW CB/FB61)</p>
-                <p>08. Januar 2021, 09:00 Uhr</p>
+                <p><a href="https://www.cottbus.de/verwaltung/gb_iv/stadtentwicklung/">STVW CB / FB61 Stadtentwicklung</a></p>
+                <p>Ansprechpartner: <a href="https://github.com/stewahn">Stefan Stöhr</a> - stefan.stoehr@cottbus.de</p>
+                <p>CC-BY 2021 CB</p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -235,93 +237,83 @@
 <script>
 
 var jsonVar;
-            var timestamp;
-            var realtime;
-            var todesfaelle = 0;
-            var genesene = 0;
-            var aktuelleInfektionen = 0;
-            var gesamtInfektionen = 0;
-            var mannSum = 0;
-            var frauSum = 0;
-            var mannSumAll = 0;
-            var frauSumAll = 0;
-            var todesfaelleFrau = 0;
-            var todesfaelleMann = 0;
-            var gruppe1 = 0;
-            var gruppe2 = 0;
-            var gruppe3 = 0;
-            var gruppe4 = 0;
-            var gruppe5 = 0;
-            var gruppe6 = 0;
-            var gruppe1All = 0;
-            var gruppe2All = 0;
-            var gruppe3All = 0;
-            var gruppe4All = 0;
-            var gruppe5All = 0;
-            var gruppe6All = 0;
-            //
-            var gruppe1AllFrau = 0;
-            var gruppe1AllMann = 0;
-            var gruppe2AllFrau = 0;
-            var gruppe2AllMann = 0;
-            var gruppe3AllFrau = 0;
-            var gruppe3AllMann = 0;
-            var gruppe4AllFrau = 0;
-            var gruppe4AllMann = 0;
-            var gruppe5AllFrau = 0;
-            var gruppe5AllMann = 0;
-            var gruppe6AllFrau = 0;
-            var gruppe6AllMann = 0;
-            //
-            var gruppe1Frau = 0;
-            var gruppe1Mann = 0;
-            var gruppe2Frau = 0;
-            var gruppe2Mann = 0;
-            var gruppe3Frau = 0;
-            var gruppe3Mann = 0;
-            var gruppe4Frau = 0;
-            var gruppe4Mann = 0;
-            var gruppe5Frau = 0;
-            var gruppe5Mann = 0;
-            var gruppe6Frau = 0;
-            var gruppe6Mann = 0;
-            //
-            var gruppe1Tot = 0;
-            var gruppe2Tot = 0;
-            var gruppe3Tot = 0;
-            var gruppe4Tot = 0;
-            var gruppe5Tot = 0;
-            var gruppe6Tot = 0;
-            //
-            var gruppe1FrauTot = 0;
-            var gruppe1MannTot = 0;
-            var gruppe2FrauTot = 0;
-            var gruppe2MannTot = 0;
-            var gruppe3FrauTot = 0;
-            var gruppe3MannTot = 0;
-            var gruppe4FrauTot = 0;
-            var gruppe4MannTot = 0;
-            var gruppe5FrauTot = 0;
-            var gruppe5MannTot = 0;
-            var gruppe6FrauTot = 0;
-            var gruppe6MannTot = 0;
-            //
-            var genesenFrau = 0;
-            var genesenMann = 0;
+var timestamp;
+var realtime;
+var todesfaelle = 0;
+var genesene = 0;
+var aktuelleInfektionen = 0;
+var gesamtInfektionen = 0;
+var mannSum = 0;
+var frauSum = 0;
+var mannSumAll = 0;
+var frauSumAll = 0;
+var todesfaelleFrau = 0;
+var todesfaelleMann = 0;
+var gruppe1 = 0;
+var gruppe2 = 0;
+var gruppe3 = 0;
+var gruppe4 = 0;
+var gruppe5 = 0;
+var gruppe6 = 0;
+var gruppe1All = 0;
+var gruppe2All = 0;
+var gruppe3All = 0;
+var gruppe4All = 0;
+var gruppe5All = 0;
+var gruppe6All = 0;
+//
+var gruppe1AllFrau = 0;
+var gruppe1AllMann = 0;
+var gruppe2AllFrau = 0;
+var gruppe2AllMann = 0;
+var gruppe3AllFrau = 0;
+var gruppe3AllMann = 0;
+var gruppe4AllFrau = 0;
+var gruppe4AllMann = 0;
+var gruppe5AllFrau = 0;
+var gruppe5AllMann = 0;
+var gruppe6AllFrau = 0;
+var gruppe6AllMann = 0;
+//
+var gruppe1Frau = 0;
+var gruppe1Mann = 0;
+var gruppe2Frau = 0;
+var gruppe2Mann = 0;
+var gruppe3Frau = 0;
+var gruppe3Mann = 0;
+var gruppe4Frau = 0;
+var gruppe4Mann = 0;
+var gruppe5Frau = 0;
+var gruppe5Mann = 0;
+var gruppe6Frau = 0;
+var gruppe6Mann = 0;
+//
+var gruppe1Tot = 0;
+var gruppe2Tot = 0;
+var gruppe3Tot = 0;
+var gruppe4Tot = 0;
+var gruppe5Tot = 0;
+var gruppe6Tot = 0;
+//
+var gruppe1FrauTot = 0;
+var gruppe1MannTot = 0;
+var gruppe2FrauTot = 0;
+var gruppe2MannTot = 0;
+var gruppe3FrauTot = 0;
+var gruppe3MannTot = 0;
+var gruppe4FrauTot = 0;
+var gruppe4MannTot = 0;
+var gruppe5FrauTot = 0;
+var gruppe5MannTot = 0;
+var gruppe6FrauTot = 0;
+var gruppe6MannTot = 0;
+//
+var genesenFrau = 0;
+var genesenMann = 0;
 
 // CB ZAHLEN VON COTTBUS.DE HOLEN 
 
 cottbusData();
-
-//    $.ajaxSetup({
-//    scriptCharset: "utf-8", //or "ISO-8859-1"
-//    contentType: "application/json; charset=utf-8"
-//    });
-//https://whateverorigin.herokuapp.com/get?url=...
-    //$.getJSON('http://whateverorigin.org/get?url=' + 
-    //    encodeURIComponent('http://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html') + '&callback=?',
-    //    function (data) {
-    //        console.log(data);
 
 function cottbusData() {
 
@@ -342,7 +334,8 @@ function cottbusData() {
 
     });
 };
-// RKI 7-TAGE-INZIDENZ
+
+// RKI 7-TAGE-INZIDENZ-API
 
 sieben();
 
@@ -357,24 +350,17 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 });
 }
 
-// RKI "NICH-SIEBEN"
+// RKI "NICH-SIEBEN" = ALLE ABFRAGEN AUßER 7-TAGE-INZIDENZ
 
-            nichtSieben(); // Ermittle alle Zahlen außer 7-Tage-Inzidenz über API 1 
+nichtSieben(); // Ermittle alle Zahlen außer 7-Tage-Inzidenz über API 1 
 
-            function nichtSieben () {
+function nichtSieben () {
 
-            // API 1
+// API 1
 
             $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_COVID19/FeatureServer/0/query?where=IdLandkreis=12052&outFields=Refdatum,AnzahlFall,AnzahlTodesfall,NeuerFall,NeuerTodesfall,NeuGenesen,AnzahlGenesen,Altersgruppe2,Geschlecht,Altersgruppe,IstErkrankungsbeginn,Datenstand&f=json', function(data) {
             
                 jsonVar = data.features;
-
-                // SETZE DEN TIMESTAMP IM ATTRIBUT REFDATUM AUF 0 UHR, 0 MINUTEN, 0 SEKUNDEN, 0 MILLISEKUNDEN
-
-                //for(i = 0; i < jsonVar.length; i++) {          
-                    
-                //    jsonVar[i].attributes.Refdatum = new Date(jsonVar[i].attributes.Refdatum).setHours(0, 0, 0, 0);
-                //};
 
                 // ERMITTLE DIE GESAMTANZAHL DER TODESFÄLLE
                 
@@ -480,7 +466,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A0-A4") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A00-A04") {
                                             
                         gruppe1Tot = gruppe1Tot + jsonVar[i].attributes.AnzahlTodesfall;
                     };
@@ -488,7 +474,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A5-A14") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A05-A14") {
                                             
                         gruppe2Tot = gruppe2Tot + jsonVar[i].attributes.AnzahlTodesfall;
                     };
@@ -530,7 +516,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
                 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A0-A4" && jsonVar[i].attributes.Geschlecht == "M") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A00-A04" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
                         gruppe1MannTot = gruppe1MannTot + jsonVar[i].attributes.AnzahlTodesfall;
                     };
@@ -538,7 +524,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A0-A4" && jsonVar[i].attributes.Geschlecht == "W") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A00-A04" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
                         gruppe1FrauTot = gruppe1FrauTot + jsonVar[i].attributes.AnzahlTodesfall;
                     };
@@ -546,7 +532,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A5-A14" && jsonVar[i].attributes.Geschlecht == "W") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A05-A14" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
                         gruppe2FrauTot = gruppe2FrauTot + jsonVar[i].attributes.AnzahlTodesfall;
                     };
@@ -554,7 +540,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A5-A14" && jsonVar[i].attributes.Geschlecht == "M") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A05-A14" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
                         gruppe2MannTot = gruppe2MannTot + jsonVar[i].attributes.AnzahlTodesfall;
                     };
@@ -622,13 +608,13 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
                                             
                         gruppe6MannTot = gruppe6MannTot + jsonVar[i].attributes.AnzahlTodesfall;
                     };
-                }; // VAR MACHEN DAVON UND LOG MACHEN DAVON !!!!
+                };
 
-                // Ermittle aktuelle Infektionen für Altersgruppen A0-A4, A5-A14, A15-A34, A35-A59, A60-A79, A80+
+                // Ermittle aktuelle Infektionen für Altersgruppen A00-A04, A05-A14, A15-A34, A35-A59, A60-A79, A80+
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A0-A4") { //gruppe1
+                    if (jsonVar[i].attributes.Altersgruppe == "A00-A04") { //gruppe1
                                             
                         gruppe1 = gruppe1 + jsonVar[i].attributes.AnzahlFall;
                     };
@@ -636,7 +622,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A5-A14") { //gruppe2
+                    if (jsonVar[i].attributes.Altersgruppe == "A05-A14") { //gruppe2
                                             
                         gruppe2 = gruppe2 + jsonVar[i].attributes.AnzahlFall;
                     };
@@ -674,11 +660,11 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
                     };
                 };
 
-                // Ermittle ALLE Infektionen für Altersgruppen 0-4, 5-14, 15-34, 35-59, 60-79, 80+
+                // Ermittle ALLE Infektionen für Altersgruppen 00-04, 05-14, 15-34, 35-59, 60-79, 80+
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A0-A4") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A00-A04") {
                                             
                         gruppe1All = gruppe1All + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
                     };
@@ -686,7 +672,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A5-A14") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A05-A14") {
                                             
                         gruppe2All = gruppe2All + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
                     };
@@ -728,7 +714,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
                 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A0-A4" && jsonVar[i].attributes.Geschlecht == "M") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A00-A04" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
                         gruppe1Mann = gruppe1Mann + jsonVar[i].attributes.AnzahlFall;
                     };
@@ -736,7 +722,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A0-A4" && jsonVar[i].attributes.Geschlecht == "W") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A00-A04" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
                         gruppe1Frau = gruppe1Frau + jsonVar[i].attributes.AnzahlFall;
                     };
@@ -744,7 +730,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A5-A14" && jsonVar[i].attributes.Geschlecht == "M") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A05-A14" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
                         gruppe2Mann = gruppe2Mann + jsonVar[i].attributes.AnzahlFall;
                     };
@@ -752,7 +738,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A5-A14" && jsonVar[i].attributes.Geschlecht == "W") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A05-A14" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
                         gruppe2Frau = gruppe2Frau + jsonVar[i].attributes.AnzahlFall;
                     };
@@ -826,7 +812,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A0-A4" && jsonVar[i].attributes.Geschlecht == "M") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A00-A04" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
                         gruppe1AllMann = gruppe1AllMann + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
                     };
@@ -834,7 +820,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A0-A4" && jsonVar[i].attributes.Geschlecht == "W") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A00-A04" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
                         gruppe1AllFrau = gruppe1AllFrau + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
                     };
@@ -842,7 +828,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A5-A14" && jsonVar[i].attributes.Geschlecht == "M") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A05-A14" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
                         gruppe2AllMann = gruppe2AllMann + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
                     };
@@ -850,7 +836,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A5-A14" && jsonVar[i].attributes.Geschlecht == "W") {
+                    if (jsonVar[i].attributes.Altersgruppe == "A05-A14" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
                         gruppe2AllFrau = gruppe2AllFrau + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
                     };
@@ -1008,14 +994,12 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
                 //console.log("Gesamtinfektionen Männer Alter 80+: " + gruppe6AllMann);
                 
                 //console.log(jsonVar)
+                
                 diagramme();
             });
         };
 
 // DIAGRAMME
-
-
-
 // CHART 1 - VERSTORBEN NACH AG
 
 function diagramme() {
