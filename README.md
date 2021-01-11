@@ -9,3 +9,4 @@ Info:
 - Bei Seitenaufruf Abfrage aktueller Datenstände von Cottbus.de
 - Anbindung an REST API von RKI/Esri ArcGIS zum Vergleich der Zahlen, ebenfalls bei Seitenaufruf abgefragt
 - Auswertung der JSON-Datensätze und Darstellung in Balkendiagrammen
+- Die Anwendung steht unter der Creative Commons Lizenz CC-BY (Freie Verwendung unter Angabe des Urhebers vgl. Impressum der App) 
