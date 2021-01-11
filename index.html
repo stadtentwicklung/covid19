@@ -89,7 +89,7 @@
                 <p>Ein Plus- und/oder Minussymbol gibt die Veränderung zum Vortag an.</p>
                 <p>Die Fallzahlen auf der <a href="https://www.cottbus.de/verwaltung/gb_iii/gesundheit/corona/index.html">Internetseite der Stadt Cottbus/Ch&oacute;&sacute;ebuz zur Corona-Lage</a> haben Priorität und werden im oberen Bereich der Rasterfelder dargestellt. Beim Seitenaufruf fragt diese Anwendung die Zahlen direkt von der Internetseite der Stadt Cottbus/Ch&oacute;&sacute;ebuz ab.</p>
                 <p>Die vom RKI zur Verfügung gestellten Fallzahlen für die Stadt Cottbus/Ch&oacute;&sacute;ebuz werden beim Seitenaufruf von einer REST API des RKI abgefragt. Die Zahlen auf Cottbus.de unterscheiden sich von den Zahlen des RKI (vgl. <a href="https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4">Robert Koch-Institut: COVID-19-Dashboard</a>. Warum die Daten unerschiedlich sind, ist leider unbekannt.</p>
-                <p>Die Balkendiagramme sind Auswertungen über die REST API und berücksichtigen Geschlecht und Altersgruppen.</p>
+                <p>Die Balkendiagramme (hoverbar/antippbar) sind Auswertungen über die REST API und berücksichtigen Geschlecht und Altersgruppen.</p>
                 <p>Der Quellcode dieser Anwendung steht auf <a href="https://github.com/digital-codebuz/cov-screen">Github</a> öffentlich unter der Creative Commons Lizen CC-BY zur Verfügung. Bei Hinweisen und Fragen melden Sie sich bitte.</p><br>
                 
                 <h6>Impressum:</h6><br>
@@ -136,8 +136,8 @@
 		<div class="col-auto mb-3">
             <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
                 <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
-                    <h6 class="card-subtitle mb-2 text-muted">Aktuelle / Gesamt-Infektionen</h6>
-                    <h4 class="card-title"><a id="cbAktuellInfi"></a><!--<a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em;">71</a>--></h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Aktuelle / gesamten Infektionen</h6>
+                    <h4 class="card-title"><a id="cbAktuellInfi"></a><a id="cbGesamtInfi"></a><a style="color: rgb(125,125,125);font-size: 0.7em;" id="cbAktuellInfiChange"></a><!--<a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em;">71</a>--></h4>
                     <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
                       <small class="text-muted"><a id="rkiAktuellInfi" style="color: rgb(125,125,125);">RKI:&nbsp;</a></small>
                     </div>
@@ -161,7 +161,7 @@
             <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
                 <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
                     <h6 class="card-subtitle mb-2 text-muted">Verstorben</h6>
-                    <h4 class="card-title"><a id="cbVerstor"></a><!--<a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em">5</a>--></h4>
+                    <h4 class="card-title"><a id="cbVerstor"></a><a style="color: rgb(125,125,125);font-size: 0.7em;" id="cbVerstorChange"></a><!--<a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em">5</a>--></h4>
                     <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
                       <small class="text-muted"><a id="rkiVerstor" style="color: rgb(125,125,125);">RKI:&nbsp;</a></small>
                     </div>
@@ -327,15 +327,23 @@ function cottbusData() {
 
             $("#cbUpdate").append(z[0].children[0].children[0].children[1].children[0].innerHTML);
             $("#cbSieben").append(z[0].children[0].children[6].children[1].innerHTML);
-            $("#cbAktuellInfi").append(z[0].children[0].children[5].children[1].innerHTML + "&nbsp;(" + z[0].children[0].children[2].children[1].innerHTML + ") / " + z[0].children[0].children[1].children[1].innerHTML);
+            $("#cbAktuellInfi").append(z[0].children[0].children[5].children[1].innerHTML);
+            $("#cbGesamtInfi").append("&nbsp;/" + z[0].children[0].children[1].children[1].innerHTML);
+            $("#cbAktuellInfiChange").append("&nbsp;" + z[0].children[0].children[2].children[1].innerHTML);
             $("#cbGen").append(z[0].children[0].children[3].children[1].innerHTML);
-            $("#cbVerstor").append(z[0].children[0].children[4].children[1].innerHTML);
-            $("#cbQuaran").append(z[0].children[0].children[7].children[1].innerHTML);
+            
+            //$("#cbVerstor").append(z[0].children[0].children[4].children[1].innerHTML);
+            var cbDataVerstorben = z[0].children[0].children[4].children[1].innerHTML;
+            cbDataVerstorben = cbDataVerstorben.replace(")","");
+            cbDataVerstorben = cbDataVerstorben.split('(');
+            $("#cbVerstor").append(cbDataVerstorben[0]);
+            $("#cbVerstorChange").append("&nbsp;" + cbDataVerstorben[1]);
 
-    });
+            $("#cbQuaran").append(z[0].children[0].children[7].children[1].innerHTML);
+    });   
 };
 
-// RKI 7-TAGE-INZIDENZ-API
+// RKI 7-TAGE-INZIDENZ-API // <a style="color: rgb(125,125,125);font-size: 0.7em; padding-left: 10px;">+</a>
 
 sieben();
 
@@ -996,6 +1004,7 @@ function nichtSieben () {
                 //console.log(jsonVar)
                 
                 diagramme();
+                
             });
         };
 
@@ -1032,11 +1041,11 @@ new Chart(document.getElementById("chart2"), {
       labels: ["0-4", "5-14", "15-34", "35-59", "60-79", "80+"],
       datasets: [
         {
-            label: 'Frauen',
+            label: 'W',
           backgroundColor: ["#FF4500","#FF4500","#FF4500","#FF4500","#FF4500","#FF4500"],
           data: [gruppe1FrauTot,gruppe2FrauTot,gruppe3FrauTot,gruppe4FrauTot,gruppe5FrauTot,gruppe6FrauTot]
         }, {
-            label: 'Männer',
+            label: 'M',
           backgroundColor: ["#8B0000","#8B0000","#8B0000","#8B0000","#8B0000","#8B0000"],
           data: [gruppe1MannTot,gruppe2MannTot,gruppe3MannTot,gruppe4MannTot,gruppe5MannTot,gruppe6MannTot]
         }
@@ -1081,11 +1090,11 @@ new Chart(document.getElementById("chart4"), {
       labels: ["0-4", "5-14", "15-34", "35-59", "60-79", "80+"],
       datasets: [
         {
-            label: 'Frauen',
+            label: 'W',
           backgroundColor: ["#FF4500","#FF4500","#FF4500","#FF4500","#FF4500","#FF4500"],
           data: [gruppe1Frau,gruppe2Frau,gruppe3Frau,gruppe4Frau,gruppe5Frau,gruppe6Frau]
         }, {
-            label: 'Männer',
+            label: 'M',
           backgroundColor: ["#8B0000","#8B0000","#8B0000","#8B0000","#8B0000","#8B0000"],
           data: [gruppe1Mann,gruppe2Mann,gruppe3Mann,gruppe4Mann,gruppe5Mann,gruppe6Mann]
         }
@@ -1130,11 +1139,11 @@ new Chart(document.getElementById("chart6"), {
       labels: ["0-4", "5-14", "15-34", "35-59", "60-79", "80+"],
       datasets: [
         {
-            label: 'Frauen',
+            label: 'W',
           backgroundColor: ["#FF4500","#FF4500","#FF4500","#FF4500","#FF4500","#FF4500"],
           data: [gruppe1AllFrau,gruppe2AllFrau,gruppe3AllFrau,gruppe4AllFrau,gruppe5AllFrau,gruppe6AllFrau]
         }, {
-            label: 'Männer',
+            label: 'M',
           backgroundColor: ["#8B0000","#8B0000","#8B0000","#8B0000","#8B0000","#8B0000"],
           data: [gruppe1AllMann,gruppe2AllMann,gruppe3AllMann,gruppe4AllMann,gruppe5AllMann,gruppe6AllMann]
         }
