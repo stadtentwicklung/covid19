@@ -399,21 +399,25 @@ function nichtSieben () {
                         genesenMann =  genesenMann + jsonVar[i].attributes.AnzahlGenesen;            
                 }};
 
-                // ERMITTLE DIE ANZAHL DER AKTUELLEN INFEKTIONEN
+                // ALLE INFEKTIONEN
 
                 for(i = 0; i < jsonVar.length; i++) {           
-                    
-                    aktuelleInfektionen =  aktuelleInfektionen + jsonVar[i].attributes.AnzahlFall;          
+                    // GESAMTINFEKTIONEN
+                    gesamtInfektionen =  gesmatInfektionen + jsonVar[i].attributes.AnzahlFall;          
                 };
-
-                // ERMITTLE DIE GESAMTANZAHL DER INFIZIERTEN SEIT ZÄHLUNG
+		         
+                // AKTUELLE
+                aktuelleInfektionen = gesmatInfektionen - genesene;          
+                   
+		    
+                // ERMITTLE DIE GESAMTANZAHL DER INFIZIERTEN SEIT ZÄHLUNG = FALSCH
                 
-                for(i = 0; i < jsonVar.length; i++) {           
+                //for(i = 0; i < jsonVar.length; i++) {           
                     
-                    gesamtInfektionen =  gesamtInfektionen + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
-                };
+                //    gesamtInfektionen =  gesamtInfektionen + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                //};
 
-                // Ermittle aktuelle Fälle Geschlecht männlich
+                // alle Fälle Geschlecht männlich
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
@@ -423,7 +427,7 @@ function nichtSieben () {
                     };
                 };
 
-                // Ermittle ALLE Fälle Geschlecht männlich
+                // ALLE Fälle Geschlecht männlich
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
