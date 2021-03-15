@@ -352,7 +352,7 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 
     var jsonVar7 = data.features;
 
-    $("#rkiSieben").append(jsonVar7[0].attributes.cases7_per_100k_txt + " (" + jsonVar7[0].attributes.last_update + ")");
+    $("#rkiSieben").append(jsonVar7[0].attributes.cases7_per_100k_txt);
 
 });
 }
