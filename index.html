@@ -309,7 +309,27 @@ var gruppe6MannTot = 0;
 //
 var genesenFrau = 0;
 var genesenMann = 0;
-
+//
+var gruppe1Gen = 0;
+var gruppe2Gen = 0;
+var gruppe3Gen = 0;
+var gruppe4Gen = 0;
+var gruppe5Gen = 0;
+var gruppe6Gen = 0;
+//
+var gruppe1FrauGen = 0;
+var gruppe1MannGen = 0;
+var gruppe2FrauGen = 0;
+var gruppe2MannGen = 0;
+var gruppe3FrauGen = 0;
+var gruppe3MannGen = 0;
+var gruppe4FrauGen = 0;
+var gruppe4MannGen = 0;
+var gruppe5FrauGen = 0;
+var gruppe5MannGen = 0;
+var gruppe6FrauGen = 0;
+var gruppe6MannGen = 0;
+	
 // CB ZAHLEN VON COTTBUS.DE HOLEN 
 
 cottbusData();
@@ -625,13 +645,13 @@ function nichtSieben () {
                     };
                 };
 
-                // Ermittle aktiven Infektionen für Altersgruppen A00-A04, A05-A14, A15-A34, A35-A59, A60-A79, A80+
+                // Gesamt - Infektionen für Altersgruppen A00-A04, A05-A14, A15-A34, A35-A59, A60-A79, A80+
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A00-A04") { //gruppe1
                                             
-                        gruppe1 = gruppe1 + jsonVar[i].attributes.AnzahlFall;
+                        gruppe1All = gruppe1All + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -639,7 +659,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A05-A14") { //gruppe2
                                             
-                        gruppe2 = gruppe2 + jsonVar[i].attributes.AnzahlFall;
+                        gruppe2All = gruppe2All + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -647,7 +667,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A15-A34") { //gruppe3
                                             
-                        gruppe3 = gruppe3 + jsonVar[i].attributes.AnzahlFall;
+                        gruppe3All = gruppe3All + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -655,7 +675,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A35-A59") { //gruppe4
                                             
-                        gruppe4 = gruppe4 + jsonVar[i].attributes.AnzahlFall;
+                        gruppe4All = gruppe4All + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -663,7 +683,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A60-A79") { //gruppe5
                                             
-                        gruppe5 = gruppe5 + jsonVar[i].attributes.AnzahlFall;
+                        gruppe5All = gruppe5All + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -671,67 +691,80 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A80+") { //gruppe6
                                             
-                        gruppe6 = gruppe6 + jsonVar[i].attributes.AnzahlFall;
+                        gruppe6All = gruppe6All + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
-                // Ermittle ALLE Infektionen für Altersgruppen 00-04, 05-14, 15-34, 35-59, 60-79, 80+
-
-                for(i = 0; i < jsonVar.length; i++) {           
+                // Aktive Infektionen für Altersgruppen 00-04, 05-14, 15-34, 35-59, 60-79, 80+
+		    
+		// 0-4
+                for(i = 0; i < jsonVar.length; i++) {  
                     
-                    if (jsonVar[i].attributes.Altersgruppe == "A00-A04") {
-                                            
-                        gruppe1All = gruppe1All + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+			if (jsonVar[i].attributes.Altersgruppe == "A00-A04") {
+                        
+				gruppe1Gen = gruppe1Gen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
-
+		gruppe1 = gruppe1All - gruppe1Gen;
+		
+		// 5-14   
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A05-A14") {
                                             
-                        gruppe2All = gruppe2All + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        	gruppe2Gen = gruppe2Gen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe2 = gruppe2All - gruppe2Gen;
 
+		// 15-34
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A15-A34") {
                                             
-                        gruppe3All = gruppe3All + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe3Gen = gruppe3Gen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe3 = gruppe3All - gruppe3Gen;
 
+		// 35-59
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A35-A59") {
                                             
-                        gruppe4All = gruppe4All + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe4Gen = gruppe4Gen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
-
+		gruppe4 = gruppe4All - gruppe4Gen;
+		    
+		// 60-79
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A60-A79") {
                                             
-                        gruppe5All = gruppe5All + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe5Gen = gruppe5Gen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
-
+		gruppe5 = gruppe5All - gruppe5Gen;
+		    
+		// 80+
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A80+") {
                                             
-                        gruppe6All = gruppe6All + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe6Gen = gruppe6Gen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe6 = gruppe6All - gruppe6Gen;
 
-                // Aktuelle Infektionen nach Altersgruppe und Geschlecht
+                
+		// Gesamt - Infektionen nach Altersgruppe und Geschlecht
                 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A00-A04" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe1Mann = gruppe1Mann + jsonVar[i].attributes.AnzahlFall;
+                        gruppe1AllMann = gruppe1AllMann + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -739,7 +772,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A00-A04" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe1Frau = gruppe1Frau + jsonVar[i].attributes.AnzahlFall;
+                        gruppe1AllFrau = gruppe1AllFrau + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -747,7 +780,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A05-A14" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe2Mann = gruppe2Mann + jsonVar[i].attributes.AnzahlFall;
+                        gruppe2AllMann = gruppe2AllMann + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -755,7 +788,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A05-A14" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe2Frau = gruppe2Frau + jsonVar[i].attributes.AnzahlFall;
+                        gruppe2AllFrau = gruppe2AllFrau + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -763,7 +796,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A15-A34" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe3Mann = gruppe3Mann + jsonVar[i].attributes.AnzahlFall;
+                        gruppe3AllMann = gruppe3AllMann + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -771,7 +804,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A15-A34" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe3Frau = gruppe3Frau + jsonVar[i].attributes.AnzahlFall;
+                        gruppe3AllFrau = gruppe3AllFrau + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -779,7 +812,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A35-A59" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe4Mann = gruppe4Mann + jsonVar[i].attributes.AnzahlFall;
+                        gruppe4AllMann = gruppe4AllMann + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -787,7 +820,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A35-A59" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe4Frau = gruppe4Frau + jsonVar[i].attributes.AnzahlFall;
+                        gruppe4AllFrau = gruppe4AllFrau + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -795,7 +828,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A60-A79" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe5Mann = gruppe5Mann + jsonVar[i].attributes.AnzahlFall;
+                        gruppe5AllMann = gruppe5AllMann + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -803,7 +836,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A60-A79" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe5Frau = gruppe5Frau + jsonVar[i].attributes.AnzahlFall;
+                        gruppe5AllFrau = gruppe5AllFrau + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -811,7 +844,7 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A80+" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe6Mann = gruppe6Mann + jsonVar[i].attributes.AnzahlFall;
+                        gruppe6AllMann = gruppe6AllMann + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -819,107 +852,120 @@ function nichtSieben () {
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A80+" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe6Frau = gruppe6Frau + jsonVar[i].attributes.AnzahlFall;
+                        gruppe6AllFrau = gruppe6AllFrau + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
-                // ALLE Infektionen seit Zählung nach Altersgruppe und Geschlecht
-
+                // Aktive Infektionen nach Altersgruppe und Geschlecht
+		
+		// 0-4
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A00-A04" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe1AllMann = gruppe1AllMann + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe1MannGen = gruppe1MannGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe1Mann = gruppe1AllMann - gruppe1MannGen;
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A00-A04" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe1AllFrau = gruppe1AllFrau + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe1FrauGen = gruppe1FrauGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe1Frau = gruppe1AllFrau - gruppe1FrauGen;
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A05-A14" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe2AllMann = gruppe2AllMann + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe2MannGen = gruppe2MannGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe2Mann = gruppe2AllMann - gruppe2MannGen;
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A05-A14" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe2AllFrau = gruppe2AllFrau + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe2FrauGen = gruppe2FrauGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe2Frau = gruppe2AllFrau - gruppe2FrauGen;
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A15-A34" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe3AllMann = gruppe3AllMann + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe3MannGen = gruppe3MannGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe3Mann = gruppe3AllMann - gruppe3MannGen;
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A15-A34" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe3AllFrau = gruppe3AllFrau + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe3FrauGen = gruppe3FrauGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe3Frau = gruppe3AllFrau - gruppe3FrauGen;
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A35-A59" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe4AllMann = gruppe4AllMann + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe4MannGen = gruppe4MannGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe4Mann = gruppe4AllMann - gruppe4MannGen;
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A35-A59" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe4AllFrau = gruppe4AllFrau + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe4FrauGen = gruppe4FrauGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe4Frau = gruppe4AllFrau - gruppe4FrauGen;
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A60-A79" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe5AllMann = gruppe5AllMann + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe5MannGen = gruppe5MannGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe5Mann = gruppe5AllMann - gruppe5MannGen;
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A60-A79" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe5AllFrau = gruppe5AllFrau + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe5FrauGen = gruppe5FrauGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe5Frau = gruppe5AllFrau - gruppe5FrauGen;
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A80+" && jsonVar[i].attributes.Geschlecht == "M") {
                                             
-                        gruppe6AllMann = gruppe6AllMann + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe6MannGen = gruppe6MannGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe6Mann = gruppe6AllMann - gruppe6MannGen;
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
                     if (jsonVar[i].attributes.Altersgruppe == "A80+" && jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        gruppe6AllFrau = gruppe6AllFrau + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        gruppe6FrauGen = gruppe6FrauGen + jsonVar[i].attributes.AnzahlGenesen;
                     };
                 };
+		gruppe6Frau = gruppe6AllFrau - gruppe6FrauGen;
 
                 // LOGGE ERGEBNISSE
 
