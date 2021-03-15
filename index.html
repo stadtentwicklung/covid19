@@ -399,14 +399,14 @@ function nichtSieben () {
                         genesenMann =  genesenMann + jsonVar[i].attributes.AnzahlGenesen;            
                 }};
 
-                // ALLE INFEKTIONEN
+                // GESAMT - INFEKTIONEN
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     // GESAMTINFEKTIONEN
                     gesamtInfektionen =  gesamtInfektionen + jsonVar[i].attributes.AnzahlFall;          
                 };
 		         
-                // AKTUELLE
+                // AKTUELLE INFEKTIONEN
                 aktuelleInfektionen = gesamtInfektionen - genesene;          
                    
 		    
@@ -417,7 +417,17 @@ function nichtSieben () {
                 //    gesamtInfektionen =  gesamtInfektionen + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
                 //};
 
-                // alle Fälle Geschlecht männlich
+                // Alle Fälle Geschlecht männlich
+
+                for(i = 0; i < jsonVar.length; i++) {           
+                    
+                    if (jsonVar[i].attributes.Geschlecht == "M") {
+                                            
+                        mannSumAll = mannSumAll + jsonVar[i].attributes.AnzahlFall;
+                    };
+                };
+
+                // Aktuelle Fälle Geschlecht männlich
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
@@ -426,14 +436,16 @@ function nichtSieben () {
                         mannSum = mannSum + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
+		
+		mannSum = mannSum - genesenMann; 
 
-                // ALLE Fälle Geschlecht männlich
+                // Alle Fälle Geschlecht weiblich
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
-                    if (jsonVar[i].attributes.Geschlecht == "M") {
+                    if (jsonVar[i].attributes.Geschlecht == "W") {
                                             
-                        mannSumAll = mannSumAll + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
+                        frauSumAll = frauSumAll + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
 
@@ -446,16 +458,8 @@ function nichtSieben () {
                         frauSum = frauSum + jsonVar[i].attributes.AnzahlFall;
                     };
                 };
-
-                // Ermittle ALLE Fälle Geschlecht weiblich
-
-                for(i = 0; i < jsonVar.length; i++) {           
-                    
-                    if (jsonVar[i].attributes.Geschlecht == "W") {
-                                            
-                        frauSumAll = frauSumAll + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
-                    };
-                };
+		    
+		frauSum = frauSum - genesenFrau;
 
                 // Ermittle Anzahl Frauen und Anzahl Männer bei Verstorbenen
 
