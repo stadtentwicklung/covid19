@@ -135,7 +135,7 @@
 		<div class="col-auto mb-3">
             <div class="card" style="width: 18rem; background-color: rgb(243,243,243);border: 1px solid rgb(100,100,100);">
                 <div class="card-body" style="padding-left: 0; padding-right: 0; padding-bottom: 0;">
-                    <h6 class="card-subtitle mb-2 text-muted">aktuelle/gesamten Infektionen</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">aktive/gesamten Infektionen</h6>
                     <h4 class="card-title"><a id="cbAktuellInfi"></a><a id="cbGesamtInfi"></a><a style="color: rgb(125,125,125);font-size: 0.7em;" id="cbAktuellInfiChange"></a><!--<a style="color:rgb(250,0,0);font-size: 0.7em; padding-left: 10px;">+</a><a id="countup" style="color:rgb(250,0,0);font-size: 0.7em;">71</a>--></h4>
                     <div class="card-footer" style="width: auto; background-color: #343a40; height: 50px;">
                       <small class="text-muted"><a id="rkiAktuellInfi" style="color: rgb(125,125,125);">RKI:&nbsp;</a></small>
@@ -625,7 +625,7 @@ function nichtSieben () {
                     };
                 };
 
-                // Ermittle aktuelle Infektionen für Altersgruppen A00-A04, A05-A14, A15-A34, A35-A59, A60-A79, A80+
+                // Ermittle aktiven Infektionen für Altersgruppen A00-A04, A05-A14, A15-A34, A35-A59, A60-A79, A80+
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
@@ -1084,7 +1084,7 @@ new Chart(document.getElementById("chart3"), {
         legend: { display: false },
         title: {
         display: true,
-        text: 'Aktuelle Infekte - Altersgruppe'
+        text: 'Aktive Infekte - Altersgruppe'
       }
     }
 });
@@ -1111,7 +1111,7 @@ new Chart(document.getElementById("chart4"), {
         legend: { display: false },
         title: {
         display: true,
-        text: 'Aktuelle Infekte - Altersgruppe & Geschlecht'
+        text: 'Aktive Infekte - Altersgruppe & Geschlecht'
       }
     }
 });
