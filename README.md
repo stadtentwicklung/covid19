@@ -11,7 +11,7 @@ Open-Source-Software-Showcase: Seitenaufruf führt zu Covid-19-Datenabruf für C
 - Die Anwendung steht unter der Creative Commons Lizenz CC-BY (Freie Verwendung unter Angabe des Urhebers vgl. Impressum der App)
 
 ### :camera_flash: Screenshot:
-![This is a Screenshot of the Dashboard for Covid-19 Data in Cottbus](https://myoctocat.com/assets/images/base-octocat.svg)
+![This is a Screenshot of the Dashboard for Covid-19 Data in Cottbus](https://raw.githubusercontent.com/digital-codebuz/covid19/main/screenshot.png)
 
 Ahoj
 
