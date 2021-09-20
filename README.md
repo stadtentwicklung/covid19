@@ -10,6 +10,8 @@ Open-Source-Software-Showcase: Seitenaufruf führt zu Covid-19-Datenabruf für C
 - Auswertung der JSON-Datensätze und Darstellung in Balkendiagrammen
 - Die Anwendung steht unter der Creative Commons Lizenz CC-BY (Freie Verwendung unter Angabe des Urhebers vgl. Impressum der App)
 
+### Screenshot:
+![This is a Screenshot of the Dashboard for Covid-19 Data in Cottbus](https://myoctocat.com/assets/images/base-octocat.svg)
 Ahoj
 
 ### :coffee: Stefan Stoehr
