@@ -1,12 +1,14 @@
 # Covid Screen Cottbus/Chóśebuz
-Webapp für einen aktuellen Lagebericht zu Covid-19 in Cottbus/Chóśebuz mit Zahlen von Cottbus.de und dem RKI zum Vergleich.
+Offene und lizenzfreie Webapp für den tagesaktuellen Lagebericht zu Covid-19 in Cottbus/Chóśebuz mit Zahlen vom [RKI Datahub](https://npgeo-corona-npgeo-de.hub.arcgis.com/).
 
-Link: https://digital-codebuz.github.io/cov-screen/
+## Link: [https://digital-codebuz.github.io/cov-screen/](https://digital-codebuz.github.io/cov-screen/)
 
-Info:
+### Technology:
 - HTML, CSS, JAVASCRIPT, JQUERY, JSON
 - Verwendung von Bootstrap.js (Layout) and Chart.js (Diagramme)
-- Bei Seitenaufruf Abfrage aktueller Datenstände von Cottbus.de
-- Anbindung an REST API von RKI/Esri ArcGIS zum Vergleich der Zahlen, ebenfalls bei Seitenaufruf abgefragt
+- Anbindung an REST API von RKI/Esri ArcGIS zum Vergleich der Zahlen - bei Seitenaufruf abgefragt
 - Auswertung der JSON-Datensätze und Darstellung in Balkendiagrammen
-- Die Anwendung steht unter der Creative Commons Lizenz CC-BY (Freie Verwendung unter Angabe des Urhebers vgl. Impressum der App) 
+- Die Anwendung steht unter der Creative Commons Lizenz CC-BY (Freie Verwendung unter Angabe des Urhebers vgl. Impressum der App)
+
+Ahoj
+Stefan Stoehr
