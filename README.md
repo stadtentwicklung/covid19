@@ -1,5 +1,5 @@
 # :drop_of_blood: Covid-19 Screen Cottbus/Chóśebuz
-Open-Source-Software-Showcase: Seitenaufruf führt zu Covid-19-Datenabruf für Cottbus/Chóśebuz vom [RKI Datahub](https://npgeo-corona-npgeo-de.hub.arcgis.com/).
+:heavy_check_mark: Open-Source-Software-Showcase: Seitenaufruf führt zu Covid-19-Datenabruf für Cottbus/Chóśebuz vom [RKI Datahub](https://npgeo-corona-npgeo-de.hub.arcgis.com/).
 
 ## :computer: Link: [https://digital-codebuz.github.io/cov-screen/](https://digital-codebuz.github.io/covid19/)
 
@@ -13,6 +13,5 @@ Open-Source-Software-Showcase: Seitenaufruf führt zu Covid-19-Datenabruf für C
 ### :camera_flash: Screenshot:
 ![This is a Screenshot of the Dashboard for Covid-19 Data in Cottbus](https://raw.githubusercontent.com/digital-codebuz/covid19/main/screenshot.png)
 
-Ahoj
 
 ### :coffee: Stefan Stoehr
