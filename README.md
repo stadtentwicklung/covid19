@@ -14,4 +14,4 @@
 ![This is a Screenshot of the Dashboard for Covid-19 Data in Cottbus](https://raw.githubusercontent.com/digital-codebuz/covid19/main/screenshot.png)
 
 ### :coffee:
-1Gruß von Stefan Stöhr
+by Stefan Stöhr
