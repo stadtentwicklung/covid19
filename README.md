@@ -1,7 +1,7 @@
 # :drop_of_blood: Covid-19 Screen Cottbus/Chóśebuz
 :heavy_check_mark: Open-Source-Software-Showcase: Seitenaufruf führt zu Covid-19-Datenabruf für Cottbus/Chóśebuz vom [RKI Datahub](https://npgeo-corona-npgeo-de.hub.arcgis.com/).
 
-## :computer: Link: [https://digital-codebuz.github.io/cov-screen/](https://digital-codebuz.github.io/covid19/)
+## :computer: Link: [https://digital-codebuz.github.io/covid19/](https://digital-codebuz.github.io/covid19/)
 
 ### :rocket: Technology:
 - HTML, CSS, JAVASCRIPT, JQUERY, JSON
