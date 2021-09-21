@@ -1,5 +1,4 @@
 # :drop_of_blood: Covid-19 Dashboard
-für Cottbus/Chóśebuz
 
 :heavy_check_mark: Open-Source-Software-Showcase: Seitenaufruf führt zu Covid-19-Datenabruf für Cottbus/Chóśebuz vom [RKI Datahub](https://npgeo-corona-npgeo-de.hub.arcgis.com/).
 
