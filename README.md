@@ -15,5 +15,4 @@
 ### :camera_flash: Screenshot:
 ![This is a Screenshot of the Dashboard for Covid-19 Data in Cottbus](https://raw.githubusercontent.com/digital-codebuz/covid19/main/screenshot.png)
 
-### :coffee:
-by [St.St.](https://github.com/stewahn)
+### :coffee::coffee::coffee: by [Stefan](https://github.com/stefanstoehr)
