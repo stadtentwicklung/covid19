@@ -140,9 +140,9 @@ $.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RK
 });
 }
 
-// RKI "NICH-SIEBEN" = ALLE ABFRAGEN AUßER 7-TAGE-INZIDENZ
+// RKI "NICH-SIEBEN" = ALLE ABFRAGEN AUÃŸER 7-TAGE-INZIDENZ
 
-nichtSieben(); // Ermittle alle Zahlen außer 7-Tage-Inzidenz über API 1 
+nichtSieben(); // Ermittle alle Zahlen auÃŸer 7-Tage-Inzidenz Ã¼ber API 1 
 
 function nichtSieben () {
 
@@ -152,7 +152,7 @@ function nichtSieben () {
             
                 jsonVar = data.features;
 
-                // ERMITTLE DIE GESAMTANZAHL DER TODESFÄLLE
+                // ERMITTLE DIE GESAMTANZAHL DER TODESFÃ„LLE
                 
                 for(i = 0; i < jsonVar.length; i++) {          
                     
@@ -166,7 +166,7 @@ function nichtSieben () {
                     genesene =  genesene + jsonVar[i].attributes.AnzahlGenesen;           
                 };
                 
-                // Ermittle Frauen und Männer unter Genesen
+                // Ermittle Frauen und MÃ¤nner unter Genesen
 
                 for(i = 0; i < jsonVar.length; i++) {          
                     
@@ -193,14 +193,14 @@ function nichtSieben () {
                 aktuelleInfektionen = gesamtInfektionen - genesene;          
                    
 		    
-                // ERMITTLE DIE GESAMTANZAHL DER INFIZIERTEN SEIT ZÄHLUNG = FALSCH
+                // ERMITTLE DIE GESAMTANZAHL DER INFIZIERTEN SEIT ZÃ„HLUNG = FALSCH
                 
                 //for(i = 0; i < jsonVar.length; i++) {           
                     
                 //    gesamtInfektionen =  gesamtInfektionen + jsonVar[i].attributes.AnzahlFall + jsonVar[i].attributes.AnzahlGenesen;
                 //};
 
-                // Alle Fälle Geschlecht männlich
+                // Alle FÃ¤lle Geschlecht mÃ¤nnlich
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
@@ -210,7 +210,7 @@ function nichtSieben () {
                     };
                 };
 
-                // Aktuelle Fälle Geschlecht männlich
+                // Aktuelle FÃ¤lle Geschlecht mÃ¤nnlich
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
@@ -222,7 +222,7 @@ function nichtSieben () {
 		
 		mannSum = mannSum - genesenMann; 
 
-                // Alle Fälle Geschlecht weiblich
+                // Alle FÃ¤lle Geschlecht weiblich
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
@@ -232,7 +232,7 @@ function nichtSieben () {
                     };
                 };
 
-                // Ermittle aktuelle Fälle Geschlecht weiblich
+                // Ermittle aktuelle FÃ¤lle Geschlecht weiblich
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
@@ -244,7 +244,7 @@ function nichtSieben () {
 		    
 		frauSum = frauSum - genesenFrau;
 
-                // Ermittle Anzahl Frauen und Anzahl Männer bei Verstorbenen
+                // Ermittle Anzahl Frauen und Anzahl MÃ¤nner bei Verstorbenen
 
                 for(i = 0; i < jsonVar.length; i++) {          
                     
@@ -408,7 +408,7 @@ function nichtSieben () {
                     };
                 };
 
-                // Gesamt - Infektionen für Altersgruppen A00-A04, A05-A14, A15-A34, A35-A59, A60-A79, A80+
+                // Gesamt - Infektionen fÃ¼r Altersgruppen A00-A04, A05-A14, A15-A34, A35-A59, A60-A79, A80+
 
                 for(i = 0; i < jsonVar.length; i++) {           
                     
@@ -458,7 +458,7 @@ function nichtSieben () {
                     };
                 };
 
-                // Aktive Infektionen für Altersgruppen 00-04, 05-14, 15-34, 35-59, 60-79, 80+
+                // Aktive Infektionen fÃ¼r Altersgruppen 00-04, 05-14, 15-34, 35-59, 60-79, 80+
 		    
 		// 0-4
                 for(i = 0; i < jsonVar.length; i++) {  
@@ -737,7 +737,7 @@ function nichtSieben () {
 
                 //console.log("Verstorben: " + todesfaelle);
                 //console.log("Verstorbene Frauen: " + todesfaelleFrau);
-                //console.log("Verstorbene Männer: " + todesfaelleMann);
+                //console.log("Verstorbene MÃ¤nner: " + todesfaelleMann);
                 $("#cbVerstor").append(todesfaelle + " (W " + todesfaelleFrau + " / M " + todesfaelleMann + ")");
                 
                 //console.log("Verstorbene im Alter 0 - 4: " + gruppe1Tot);
@@ -754,12 +754,12 @@ function nichtSieben () {
                 //console.log("Verstorbene Frauen Alter 60 - 79: " + gruppe5FrauTot);
                 //console.log("Verstorbene Frauen Alter 80+: " + gruppe6FrauTot);
                 
-                //console.log("Verstorbene Männer Alter 0 - 4: " + gruppe1MannTot);
-                //console.log("Verstorbene Männer Alter 5 - 14: " + gruppe2MannTot);
-                //console.log("Verstorbene Männer Alter 15 - 34: " + gruppe3MannTot);
-                //console.log("Verstorbene Männer Alter 35 - 59: " + gruppe4MannTot);
-                //console.log("Verstorbene Männer Alter 60 - 79: " + gruppe5MannTot);
-                //console.log("Verstorbene Männer Alter 80+: " + gruppe6MannTot);
+                //console.log("Verstorbene MÃ¤nner Alter 0 - 4: " + gruppe1MannTot);
+                //console.log("Verstorbene MÃ¤nner Alter 5 - 14: " + gruppe2MannTot);
+                //console.log("Verstorbene MÃ¤nner Alter 15 - 34: " + gruppe3MannTot);
+                //console.log("Verstorbene MÃ¤nner Alter 35 - 59: " + gruppe4MannTot);
+                //console.log("Verstorbene MÃ¤nner Alter 60 - 79: " + gruppe5MannTot);
+                //console.log("Verstorbene MÃ¤nner Alter 80+: " + gruppe6MannTot);
 
                 //console.log("Genesen: " + genesene);
                 $("#cbGen").append(genesene + " (W " + genesenFrau + " / M " + genesenMann + ")");
@@ -770,10 +770,10 @@ function nichtSieben () {
                 
 
                 //console.log("Aktuell infizierte Frauen: " + frauSum);
-                //console.log("Aktuell infizierte Männer: " + mannSum);
+                //console.log("Aktuell infizierte MÃ¤nner: " + mannSum);
                 
                 //console.log("Gesamtinfektionen Frauen: " + frauSumAll);
-                //console.log("Gesamtinfektionen Männer: " + mannSumAll);
+                //console.log("Gesamtinfektionen MÃ¤nner: " + mannSumAll);
                 
                 //console.log("Aktuell infiziert im Alter 0 - 4: " + gruppe1);
                 //console.log("Aktuell infiziert im Alter 5 - 14: " + gruppe2);
@@ -789,12 +789,12 @@ function nichtSieben () {
                 //console.log("Aktuell infizierte Frauen Alter 60 - 79: " + gruppe5Frau);
                 //console.log("Aktuell infizierte Frauen Alter 80+: " + gruppe6Frau);
                 
-                //console.log("Aktuell infizierte Männer Alter 0 - 4: " + gruppe1Mann);
-                //console.log("Aktuell infizierte Männer Alter 5 - 14: " + gruppe2Mann);
-                //console.log("Aktuell infizierte Männer Alter 15 - 34: " + gruppe3Mann);
-                //console.log("Aktuell infizierte Männer Alter 35 - 59: " + gruppe4Mann);
-                //console.log("Aktuell infizierte Männer Alter 60 - 79: " + gruppe5Mann);
-                //console.log("Aktuell infizierte Männer Alter 80+: " + gruppe6Mann);
+                //console.log("Aktuell infizierte MÃ¤nner Alter 0 - 4: " + gruppe1Mann);
+                //console.log("Aktuell infizierte MÃ¤nner Alter 5 - 14: " + gruppe2Mann);
+                //console.log("Aktuell infizierte MÃ¤nner Alter 15 - 34: " + gruppe3Mann);
+                //console.log("Aktuell infizierte MÃ¤nner Alter 35 - 59: " + gruppe4Mann);
+                //console.log("Aktuell infizierte MÃ¤nner Alter 60 - 79: " + gruppe5Mann);
+                //console.log("Aktuell infizierte MÃ¤nner Alter 80+: " + gruppe6Mann);
 
                 //console.log("Gesamtinfektionen Alter 0 - 4: " + gruppe1All);
                 //console.log("Gesamtinfektionen Alter 5 - 14: " + gruppe2All);
@@ -810,12 +810,12 @@ function nichtSieben () {
                 //console.log("Gesamtinfektionen Frauen Alter 60 - 79: " + gruppe5AllFrau);
                 //console.log("Gesamtinfektionen Frauen Alter 80+: " + gruppe6AllFrau);
                 
-                //console.log("Gesamtinfektionen Männer Alter 0 - 4: " + gruppe1AllMann);
-                //console.log("Gesamtinfektionen Männer Alter 5 - 14: " + gruppe2AllMann);
-                //console.log("Gesamtinfektionen Männer Alter 15 - 34: " + gruppe3AllMann);
-                //console.log("Gesamtinfektionen Männer Alter 35 - 59: " + gruppe4AllMann);
-                //console.log("Gesamtinfektionen Männer Alter 60 - 79: " + gruppe5AllMann);
-                //console.log("Gesamtinfektionen Männer Alter 80+: " + gruppe6AllMann);
+                //console.log("Gesamtinfektionen MÃ¤nner Alter 0 - 4: " + gruppe1AllMann);
+                //console.log("Gesamtinfektionen MÃ¤nner Alter 5 - 14: " + gruppe2AllMann);
+                //console.log("Gesamtinfektionen MÃ¤nner Alter 15 - 34: " + gruppe3AllMann);
+                //console.log("Gesamtinfektionen MÃ¤nner Alter 35 - 59: " + gruppe4AllMann);
+                //console.log("Gesamtinfektionen MÃ¤nner Alter 60 - 79: " + gruppe5AllMann);
+                //console.log("Gesamtinfektionen MÃ¤nner Alter 80+: " + gruppe6AllMann);
                 
                 //console.log(jsonVar)
                 
