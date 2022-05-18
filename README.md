@@ -30,7 +30,7 @@ https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/rki_history_v
 - Anwendung steht zur kostenlosen und freien Verwendung unter der [Creative Commons Lizenz CC-BY-SA](https://de.creativecommons.net/was-ist-cc/)
 - Weiterverwendung supersimpel als Template für andere Städte/Gemeinden mit minimalen Anpassungen
 
-### :camera_flash: Screenshot:
+### :camera_flash: Screenshot (works perfect before DATAHUB updates):
 ![This is a Screenshot of the Dashboard for Covid-19 Data in Cottbus](https://raw.githubusercontent.com/digital-codebuz/covid19/main/screenshot.png)
 
 ### :coffee::coffee::coffee: by [Stefan](https://github.com/stefanstoehr)
