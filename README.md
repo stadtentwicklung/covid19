@@ -9,6 +9,19 @@
 
 ## :computer: Link: [https://stadtentwicklung.github.io/covid19/](https://stadtentwicklung.github.io/covid19/)
 
+### :computer: ESRI DATAHUB RKI API INFO:
+
+**Cottbus REST-API: where AdmUnitId=12052**
+
+**ArcGIS REST Services Directory => Home > services > rki_history_v (FeatureServer) > rki_history > query**
+https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=GEN+%3D+%27Cottbus%27&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=false&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token=
+
+**ArcGIS REST Services Directory => query template (Out Fields: Datum,AnzFallVortag)**
+https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/rki_history_v/FeatureServer/0/query?where=AdmUnitId%3D12052&objectIds=&time=&resultType=none&outFields=Datum%2CAnzFallVortag%2C+AnzFallNeu&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false&orderByFields=Datum&groupByFieldsForStatistics=Datum&outStatistics=&having=&resultOffset=&resultRecordCount=&sqlFormat=standard&f=html&token=
+
+**ArcGIS REST Services Directory => query template (Out Fields: Datum,AnzFallVortag,AnzFallNeu)**
+https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/rki_history_v/FeatureServer/0/query?where=AdmUnitId%3D12052&objectIds=&time=&resultType=none&outFields=Datum%2CAnzFallVortag%2C+AnzFallNeu&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false&orderByFields=Datum&groupByFieldsForStatistics=Datum&outStatistics=&having=&resultOffset=&resultRecordCount=&sqlFormat=standard&f=pjson&token=
+
 ### :rocket: Technology:
 - HTML, CSS, JAVASCRIPT, JQUERY, JSON
 - Verwendung von [Bootstrap.js](https://getbootstrap.com/) für die Layoutgrundlage and [Chart.js](https://www.chartjs.org/) für die Visualisierung in Diagrammen
