@@ -76,14 +76,14 @@ function inzidenzen () {
 
 function infizierte () {
 	
-	// FÄLLE INSGESAMT
+	// FÃ„LLE INSGESAMT
 	$.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/arcgis/rest/services/RKI_Landkreisdaten/FeatureServer/0/query?where=GEN+%3D+%27Cottbus%27&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&returnGeodetic=false&outFields=*&returnGeometry=false&returnCentroid=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=pjson&token=', function(data) {
 		var casesAPI = data.features;
 		var casesData = casesAPI[0].attributes.cases;
 		// IMPLEMENT
 		$("#cbGesamtInfi").append(casesData);
 		counting();
-		// FÄLLE NEU
+		// FÃ„LLE NEU
 		$.getJSON('https://services7.arcgis.com/mOBPykOjAyBO2ZKk/ArcGIS/rest/services/rki_history_v/FeatureServer/0/query?where=AdmUnitId%3D12052&objectIds=&time=&resultType=none&outFields=Datum%2CAnzFallNeu&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnDistinctValues=false&cacheHint=false&orderByFields=Datum&groupByFieldsForStatistics=Datum&outStatistics=&having=&resultOffset=&resultRecordCount=&sqlFormat=standard&f=pjson&token=', function(data) {
 			var newAPI = data.features;
 			var newCount = newAPI[newAPI.length - 1].attributes.AnzFallNeu;
@@ -101,7 +101,7 @@ function infizierte () {
 // https://jshakespeare.com/simple-count-up-number-animation-javascript-react/
 // How long you want the animation to take, in ms
 const animationDuration = 2000;
-// Calculate how long each ‘frame’ should last if we want to update the animation 60 times per second
+// Calculate how long each â€˜frameâ€™ should last if we want to update the animation 60 times per second
 const frameDuration = 1000 / 60;
 // Use that to calculate how many frames we need to complete the animation
 const totalFrames = Math.round( animationDuration / frameDuration );
@@ -126,14 +126,14 @@ const animateCountUp = el => {
 			el.innerHTML = currentCount;
 		}
 
-		// If we’ve reached our last frame, stop the animation
+		// If weâ€™ve reached our last frame, stop the animation
 		if ( frame === totalFrames ) {
 			clearInterval( counter );
 		}
 	}, frameDuration );
 };
 
-// Run the animation on all elements with a class of ‘countup’
+// Run the animation on all elements with a class of â€˜countupâ€™
 function counting () {
 	const countupEls = document.querySelectorAll( '#cbGesamtInfi' );
 	countupEls.forEach( animateCountUp );
