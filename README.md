@@ -1,5 +1,10 @@
 # :drop_of_blood: Showcase #1: Covid-19 Dashboard
 
+### :white_check_mark: Update 19. Mai 2022
+
+### :camera_flash: Screenshot:
+![This is a Screenshot of the Dashboard for Covid-19 Data in Cottbus](https://raw.githubusercontent.com/digital-codebuz/covid19/main/screenshot3.PNG)
+
 ### :white_check_mark: Update 5. April 2022
 
 ### :camera_flash: Screenshot:
