@@ -179,7 +179,7 @@ datalizing();
 const data = {
   labels: labels,
   datasets: [{
-    label: 'Verlauf',
+    label: 'Anzahl Infektionen pro Tag',
     data: datapoints,
 	pointStyle: 'circle',
     pointRadius: 0,
